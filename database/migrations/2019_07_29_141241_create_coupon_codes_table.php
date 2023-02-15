@@ -15,9 +15,9 @@ class CreateCouponCodesTable extends Migration
     {
         Schema::create('coupon_codes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->comment('优惠卷标题');
-            $table->string('code')->unique()->comment('优惠码');
-            $table->string('type')->comment('优惠卷类型,支持固定金额和百分比');
+            $table->string('name', 64)->comment('优惠卷标题');
+            $table->string('code', 64)->unique()->comment('优惠码');
+            $table->string('type', 64)->comment('优惠卷类型,支持固定金额和百分比');
             $table->decimal('value')->comment('折扣值，根据不同类型含义不同');
             $table->unsignedInteger('total')->comment('全站可兑换的数量');
             $table->unsignedInteger('used')->default(0)->comment('已兑换的数量');
